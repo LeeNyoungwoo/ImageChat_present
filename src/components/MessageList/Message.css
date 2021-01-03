@@ -5,8 +5,15 @@ div {
 }
 
 .messageSection {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     display: flex;
+    align-items: flex-end;
+}
+
+.messageSection_Img {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
     align-items: flex-end;
 }
 
@@ -14,29 +21,15 @@ div {
     justify-content: flex-end;
 }
 
-.messageSectionUser img {
-    align-self: flex-start;
-}
-
-.messageSectionTime {
-    font-size: 1vh;
-    color: rgba(0, 0, 0, 0.5);
-}
-
-.messageSectionSystem {
-    text-align: center;
-    font-size: 2vh;
-    color: black;
-    margin-top: 30px;
-    margin-bottom: 25px;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
 .messageSectionBody {
     padding: 2vh 2vw;
     border-radius: 5px;
-    font-size: 2vh;
+    font-size: 1.5vh;
     font-family: 'Roboto', sans-serif;
+}
+
+.messageSectionImg {
+    padding: 0.8vh 0.4vw;
 }
 
 .messageSectionBot .messageSectionBody {

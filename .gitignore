@@ -11,6 +11,10 @@
 # production
 /build
 
+# image and data
+/src/store/modules/coco_ex
+/src/store/modules/dataset
+
 # misc
 .DS_Store
 .env.local

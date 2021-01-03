@@ -4,18 +4,35 @@ import Message from "./Message"
 export default class MessageList extends Component {
 
     render() {
-        const { chatList } = this.props;
+        const { chatData, data_idx, top1_mode } = this.props;
+        const max_idx = chatData[data_idx]['max_idx'];
         
         // render whole messages during conversation
-        const messages = chatList.map(
-            ({id, type, time, text}, i) => (
+        const messages = chatData[data_idx]['text'].map(
+            (content, i) => (
                 <div key={i}>
-                    <Message
-                        id={id}
-                        type={type}
-                        time={time}
-                        text={text}
-                    />
+                    { (i % 2) === 0
+                        ?   <Message
+                                id={i}
+                                type={true}
+                                text={content}
+                                img_list = { top1_mode && max_idx !== i
+                                    ?   null
+                                    :   chatData[data_idx]['img'][i]
+                                }
+                                score_list = {chatData[data_idx]['score'][i]}
+                            />
+                        :   <Message
+                                id={i}
+                                type={false}
+                                text={content}
+                                img_list = { top1_mode && max_idx !== i
+                                    ?   null
+                                    :   chatData[data_idx]['img'][i]
+                                }
+                                score_list = {chatData[data_idx]['score'][i]}
+                            />
+                    }
                 </div>
             )
         );
