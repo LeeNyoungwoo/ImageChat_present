@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap');
+
+div {
+    display: block;
+}
+
+.messageSection {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.messageSectionUser {
+    justify-content: flex-end;
+}
+
+.messageSectionUser img {
+    align-self: flex-start;
+}
+
+.messageSectionTime {
+    font-size: 1vh;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.messageSectionSystem {
+    text-align: center;
+    font-size: 2vh;
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.messageSectionBody {
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    font-size: 2vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.messageSectionBot .messageSectionBody {
+    background-color: #E8EAF6;
+    margin-left: 2vw;
+    margin-right: 1vw;
+}
+
+.messageSectionUser .messageSectionBody {
+    background-color: #F5F5F5;
+    margin-right: 2vw;
+    margin-left: 1vw;
+}
+
+.messageSectionCenter {
+    display: flex;
+    flex-direction: column;
+}
