@@ -19,8 +19,8 @@ export default function ChatGrid(props) {
                     <div style={{height:'2vh'}}></div>
                     <div ref={messagesEnd} />
                 </main>
-                <div className="textInputBox">
-                </div>
+                {/* <div className="textInputBox">
+                </div> */}
             </div>
         </div>
     );

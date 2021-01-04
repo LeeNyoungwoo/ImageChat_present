@@ -6,7 +6,7 @@ export default class RightGrid extends Component{
 
     render() {
         const { conv_addIdx, conv_subIdx, data_idx, chatData_length, 
-            conv_changePrev, conv_changeNext, prev_status, next_status, stateOptions,
+            conv_changePrev, conv_changeNext, prev_status, next_status, stateOptions, conv_setModeP,
             conv_changeDatasetA, conv_changeDatasetB, conv_changeDatasetC, conv_setModeT, conv_setModeF, modeOptions,
         } = this.props;
         
@@ -46,10 +46,12 @@ export default class RightGrid extends Component{
         }
 
         const changeMode = (e, data) => {
-            if (data.value){
+            if (data.value === 0){
                 conv_setModeT()
-            } else{
+            } else if (data.value === 1){
                 conv_setModeF()
+            } else if (data.value === 2){
+                conv_setModeP()
             }
         }
 

@@ -10,8 +10,9 @@ const NEXT_STATUS = 'chat/NEXT_STATUS' // 이전 대화로 이동
 const CHANGE_DATASET_A = 'chat/CHANGE_DATASET_A'
 const CHANGE_DATASET_B = 'chat/CHANGE_DATASET_B'
 const CHANGE_DATASET_C = 'chat/CHANGE_DATASET_C'
-const CHANGE_MODE_T = 'chat/CHANGE_MODE_T' // 모드 변경
-const CHANGE_MODE_F = 'chat/CHANGE_MODE_F' // 모드 변경
+const CHANGE_MODE_T = 'chat/CHANGE_MODE_T' // 모드 변경, Top1_mode
+const CHANGE_MODE_F = 'chat/CHANGE_MODE_F' // 모드 변경, Overall_mode
+const CHANGE_MODE_P = 'chat/CHANGE_MODE_P' // 모드 변경, Picture_only mode
 
 export const changePrev= createAction(PREV_STATUS)
 export const changeNext= createAction(NEXT_STATUS)
@@ -22,6 +23,7 @@ export const changeDatasetB = createAction(CHANGE_DATASET_B)
 export const changeDatasetC = createAction(CHANGE_DATASET_C)
 export const setModeT = createAction(CHANGE_MODE_T)
 export const setModeF = createAction(CHANGE_MODE_F)
+export const setModeP = createAction(CHANGE_MODE_P)
 
 const initialState = {
     chatData: dialy_coco_10,
@@ -46,17 +48,22 @@ const initialState = {
             value: 2
         },
     ],
-    top1_mode: true,
+    top1_mode: 0,
     modeOptions: [
         {
             key: 0,
             text: 'top1_mode',
-            value: true
+            value: 0
         },
         {
             key: 1,
             text: 'overall_mode',
-            value: false
+            value: 1
+        },
+        {
+            key: 2,
+            text: 'picture_only',
+            value: 2
         }
     ]
 }
@@ -102,15 +109,18 @@ export default handleActions(
             data_idx: 0,
             prev_status: false,
             next_status: true,
-            top1_mode: true,
         }),
         [CHANGE_MODE_T]: (state) => ({
             ...state,
-            top1_mode: true
+            top1_mode: 0
         }),
         [CHANGE_MODE_F]: (state) => ({
             ...state,
-            top1_mode: false
+            top1_mode: 1
+        }),
+        [CHANGE_MODE_P]: (state) => ({
+            ...state,
+            top1_mode: 2
         })
     },
     initialState

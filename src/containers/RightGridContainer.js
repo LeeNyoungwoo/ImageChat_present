@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addIdx, subIdx, changePrev, changeNext, changeDatasetA, changeDatasetB, changeDatasetC, setModeT, setModeF } from '../store/modules/ChatData';
+import { addIdx, subIdx, changePrev, changeNext, changeDatasetA, changeDatasetB, changeDatasetC, setModeT, setModeF, setModeP } from '../store/modules/ChatData';
 import RightGrid from '../components/RightGrid/RightGrid';
 
 export default function RightGridContainer() {
@@ -50,6 +50,10 @@ export default function RightGridContainer() {
         dispatch(setModeF());
     }
 
+    const conv_setModeP = () => {
+        dispatch(setModeP());
+    }
+
     return (
         <RightGrid
             data_idx={data_idx}
@@ -68,6 +72,7 @@ export default function RightGridContainer() {
             conv_changeDatasetC={conv_changeDatasetC}
             conv_setModeT={conv_setModeT}
             conv_setModeF={conv_setModeF}
+            conv_setModeP={conv_setModeP}
         />
     );
 }

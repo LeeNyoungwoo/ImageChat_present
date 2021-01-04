@@ -16,21 +16,25 @@ export default class MessageList extends Component {
                                 id={i}
                                 type={true}
                                 text={content}
-                                img_list = { top1_mode && max_idx !== i
+                                img_list = { ((top1_mode === 0 || top1_mode === 2) && max_idx !== i)
                                     ?   null
                                     :   chatData[data_idx]['img'][i]
                                 }
                                 score_list = {chatData[data_idx]['score'][i]}
+                                top1_mode = {top1_mode}
+                                top1_target = {max_idx === i}
                             />
                         :   <Message
                                 id={i}
                                 type={false}
                                 text={content}
-                                img_list = { top1_mode && max_idx !== i
+                                img_list = { ((top1_mode === 0 || top1_mode === 2) && max_idx !== i)
                                     ?   null
                                     :   chatData[data_idx]['img'][i]
                                 }
                                 score_list = {chatData[data_idx]['score'][i]}
+                                top1_mode = {top1_mode}
+                                top1_target = {max_idx === i}
                             />
                     }
                 </div>

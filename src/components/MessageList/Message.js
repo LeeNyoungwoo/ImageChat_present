@@ -4,7 +4,7 @@ import './Message.css';
 
 export default class Message extends Component {
     render() {
-        const { type, text, img_list, score_list } = this.props;
+        const { type, text, img_list, score_list, top1_mode, top1_target } = this.props;
 
             return (
             <div>
@@ -13,9 +13,12 @@ export default class Message extends Component {
                         if (type === true)
                             return  (
                                     <div>
-                                        <div className="messageSection messageSectionBot">
-                                            <span className="messageSectionBody">{text}</span>
-                                        </div>
+                                        { (top1_mode === 2 && top1_target)
+                                            ?   null
+                                            :   <div className="messageSection messageSectionBot">
+                                                    <span className="messageSectionBody">{text}</span>
+                                                </div>
+                                        }
                                         {img_list
                                             ?   <div className="messageSection_Img messageSectionBot">
                                                     { img_list.map(
@@ -34,11 +37,14 @@ export default class Message extends Component {
                         if (type === false)
                             return (
                                 <div>
-                                    <div className="messageSection messageSectionUser">
-                                        <div className="messageSectionCenter">
-                                            <span className="messageSectionBody">{text}</span>
-                                        </div>
-                                    </div>
+                                    { (top1_mode === 2 && top1_target)
+                                            ?   null
+                                            :   <div className="messageSection messageSectionUser">
+                                                    <div className="messageSectionCenter">
+                                                        <span className="messageSectionBody">{text}</span>
+                                                    </div>
+                                                </div>
+                                    }
                                     {img_list
                                         ?   <div className="messageSection_Img messageSectionUser">
                                                 { img_list.map(
